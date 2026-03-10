@@ -10,7 +10,7 @@ protected:
     double multiplier;
 
 public:
-    List(int capacity, double multiplier) 
+    List(int capacity, double multiplier)
     {
         this->size = 0;
         this->capacity = capacity;
@@ -23,27 +23,27 @@ public:
 
     List() : List(10, 10) {}
 
-    ~List() 
+    ~List()
     {
         delete[] this->data;
     }
 
     // Get Size
-    int length() 
+    int length()
     {
         return this->size;
     }
-    int len() 
+    int len()
     {
         return this->size;
     }
     // Resize Method
-    void resize() 
+    void resize()
     {
         TYPE* ogData = this->data;
         this->capacity *= this->multiplier;
         this->data = new TYPE[this->capacity];
-        for (int i = 0; i < this->size; i++) 
+        for (int i = 0; i < this->size; i++)
         {
             this->data[i] = ogData[i];
         }
@@ -54,7 +54,7 @@ public:
         this->insert(right);
         return this;
     }
-    TYPE read(int index) 
+    TYPE read(int index)
     {
         return this->data[index];
     }
@@ -91,6 +91,15 @@ public:
             this->data[i] = this->data[i + 1];
         }
         this->size--;
+    }
+    virtual int search(TYPE value)
+    {
+        for (int i = 0; i < this->size; i++)
+        {
+            if (this->data[i] == value)
+                return i;
+        }
+        return -1;
     }
     friend ostream& operator<<(ostream& left, List<TYPE>& right)
     {
