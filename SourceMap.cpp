@@ -18,5 +18,19 @@ int main()
 	menu["Faluta"] = 5.00;
 	menu["Gulab Jamin"] = 6.99;
 	cout << menu["Mango Lassi"] << endl;
+
+	Map<string, double> killers;
+	killers.add("The Animatronic", 1);
+	killers.add("The Mastermind", 2);
+	killers.add("The Onyro", 3);
+	killers.add("The Legion", 4);
+	killers.add("The Executioner", 5);
+	killers.add("The Shape", 6);
+	killers.add("The Deathslinger", 7);
+	killers.add("The Pig", 8);
+	killers.add("The Knight", 9);
+	killers.add("The Spirit", 10);
+	killers.add("GhostFace", 11);
+	killers.display();
 	return 0;
 }
