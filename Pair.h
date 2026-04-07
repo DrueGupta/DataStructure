@@ -60,6 +60,10 @@ public:
 	{
 		return int(key * 1000000) % this->capacity;
 	}
+	int hash(char key)
+	{
+		return int(key) % this->capacity;
+	}
 	int hash(string key)
 	{
 		int value = 0;
@@ -93,7 +97,7 @@ public:
 					{
 						this->store[index] = new List<Pair<KEY, VALUE>>();
 					}
-					pair = Pair<KEY,VALUE>(ogStore[i]->read(j).key, ogStore[i]->read(j).value);
+					pair = Pair<KEY, VALUE>(ogStore[i]->read(j).key, ogStore[i]->read(j).value);
 					this->store[index]->insert(pair);
 				}
 			}
@@ -152,7 +156,14 @@ public:
 					cout << "(" << this->store[i]->read(j).key << "," << this->store[i]->read(j).value << ") ";
 				}
 			}
-		cout << endl;
+			cout << endl;
 		}
+	}
+
+	bool isKey(KEY key)
+	{
+		int index = hash(key);
+		int result = this->store[index]->search(key);
+		return result != -1;
 	}
 };
