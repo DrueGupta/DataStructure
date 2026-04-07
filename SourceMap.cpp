@@ -4,6 +4,9 @@
 #include "List.h"
 #include "OrderedList.h"
 #include "Pair.h"
+#include "Stack.h"
+#include "Linter.h"
+#include "Queue.h"
 using namespace std;
 
 int main()
@@ -33,5 +36,29 @@ int main()
 	killers.add("The Spirit", 10);
 	killers.add("GhostFace", 11);
 	killers.display();
-	return 0;
+
+	Stack<string> robloxGames;
+	robloxGames.push("Nullscape");
+	robloxGames.push("Pressure");
+	robloxGames.push("Grace(RIP)");
+	robloxGames.push("Outcome Memories(RIP)");
+	robloxGames.push("Bite By Night");
+	robloxGames.push("Violence District");
+	robloxGames.push("Starfall");
+	robloxGames.pop();
+	cout << robloxGames.read() << endl;
+	cout << robloxGames << endl;
+
+	Queue<string> MIBOMBOCLAT;
+	MIBOMBOCLAT.enqueue("oh my gah bruuuuuuh");
+	MIBOMBOCLAT.enqueue("7 * 7 = 47");
+	MIBOMBOCLAT.enqueue("my name is carl winston AAAAAAAAAAAAAH");
+	MIBOMBOCLAT.enqueue("FRAUD TOMORROW!!!!1!");
+	MIBOMBOCLAT.enqueue("Thank you... Chainsaw Man.");
+	MIBOMBOCLAT.dequeue();
+	cout << MIBOMBOCLAT.read() << endl;
+	cout << MIBOMBOCLAT << endl;
+
+	Linter linter;
+	cout << linter.lint("(I am a {sigma sigma} boy yea im so [sigma sigma} such an alpha male)") << endl;
 }
