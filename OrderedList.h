@@ -4,25 +4,25 @@
 using namespace std;
 
 template <typename TYPE>
-class OrderedList : public List<TYPE> 
+class OrderedList : public List<TYPE>
 {
 public:
-	void insert(TYPE value) override 
+	void insert(TYPE value) override
 	{
-		if (this->size == this->capacity) 
+		if (this->size == this->capacity)
 		{
 			this->resize();
 		}
 		int index = 0;
 		for (index = 0; this->data[index] < value && index < this->size; index++) {}
-		for (int i = this->size; i > index; i--) 
+		for (int i = this->size; i > index; i--)
 		{
 			this->data[i] = this->data[i - 1];
 		}
 		this->data[index] = value;
 		this->size++;
 	}
-	void insert(TYPE value, int index) 
+	void insert(TYPE value, int index)
 	{
 		this->insert(value);
 	}
